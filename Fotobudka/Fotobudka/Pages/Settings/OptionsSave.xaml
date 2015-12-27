@@ -1,0 +1,51 @@
+﻿<UserControl xmlns:Settings="clr-namespace:Fotobudka.Pages.Settings"  x:Class="Fotobudka.Pages.Settings.OptionsSave"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:properties="clr-namespace:Fotobudka.Pages.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock Text="Ustawienia ogólne" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
+                <StackPanel>
+                   
+                        <Grid>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Margin" Value="0,4,0,4" />
+                                </Style>
+                            
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="24" />
+                        </Grid.ColumnDefinitions>
+                            <TextBox x:Name="PhotoPath" Grid.Row="0" Grid.Column="1" KeyDown="NumericField_KeyDown" PreviewKeyDown="NumericField_PreviewKeyDown"
+                                     Text="{Binding Source={x:Static properties:Settings1.Default},  Path=sSinglePhotoPath}" TextAlignment="Right" IsEnabled="False" />
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Ścieżka zapisu zdjęć" VerticalAlignment="Center"></TextBlock>
+                        <Button x:Name="SelectPathPhoto" Grid.Row="0" Grid.Column="2" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="../../Images/folder265 (1).png" Stretch="None" TileMode="FlipXY"/>
+                            </Button.Background>
+                        </Button>
+                            <TextBox x:Name="NextPhotoDelay" Grid.Row="1" Grid.Column="2" KeyDown="NumericField_KeyDown" PreviewKeyDown="NumericField_PreviewKeyDown"
+                                      Text="{Binding Source={x:Static properties:Settings1.Default},  Path=iPhotoInterval}" TextAlignment="Right"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Opóźnienie kolejnego zdjęcia" VerticalAlignment="Center"></TextBlock>
+                          
+                        </Grid>
+                   
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
